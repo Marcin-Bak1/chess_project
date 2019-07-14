@@ -66,7 +66,7 @@ class rook:
             print("This move is not valid")
         
         else:
-            #Now that the move has been checked to be valid
+            #Now that the move has been checked to be valid, it is checked if the piece strikes other color 
                             
                             
                             
