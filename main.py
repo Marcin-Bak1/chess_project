@@ -11,6 +11,7 @@ This is the main file that initialises and continues the game
 import numpy as np
 import matplotlib.pyplot as plt
 import pieces
+import settings
 
 
             
@@ -53,13 +54,16 @@ pieces_id = { 1:'king_b', 3:'queen_b', 5:'knight_1b', 7:'knight_2b', 9:'rook_1b'
 #         ]
 # =============================================================================
 
-board = np.zeros((8,8))
+
+
 # =============================================================================
 # =============================================================================
 # Here starts a party mode
 # =============================================================================
 # =============================================================================
 
+settings.init_board()
+settings.init_pieces_id()
 rook_1b = pieces.rook(0, 0, 'black', 9)
 rook_2b = pieces.rook(0, 7, 'black', 11)
 rook_1w = pieces.rook(7, 0, 'white', 10)
@@ -67,7 +71,7 @@ rook_2w = pieces.rook(7, 7, 'white', 12)
 
 #Check invalid moves
 rook_1b.move((1,1))
-print(board)
+print(settings.board)
 
 # =============================================================================
 # =============================================================================
