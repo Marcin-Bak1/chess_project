@@ -10,10 +10,12 @@ This is the main file that initialises and continues the game
 
 import numpy as np
 import matplotlib.pyplot as plt
+import pieces
+
+
+            
 #Initialization of the game
 
-board = np.zeors((8, 8)) #This variable will store the positions of the pieces on the board
-pieces_out = [] #This variable will store ids of pieces which were taken out
 
 #This is an old version of the database
 #The ids of the pieces go from 1 to 32. This dictionary identifies the piece type based on the id as well as its color
@@ -27,33 +29,61 @@ pieces_out = [] #This variable will store ids of pieces which were taken out
 # =============================================================================
 
 #New version of the pieces dictionary. To contain less information if the number is odd it is black, if the number is even the piece is white
-pieces_id = { 1:"king", 3:"queen", 5:"knight", 7:"knight", 9:"rook", 11:"rook",...
-             13:"bishop", 15:"bishop", 17:"pawn", 19:"pawn", 21:"pawn", 23:"pawn",...
-             25:"pawn", 27:"pawn", 29:"pawn", 31:"pawn",...
-             2:"king", 4:"queen", 6:"knight", 8:"knight", 10:"rook", 12:"rook",...
-             14:"bishop", 16:"bishop", 18:"pawn", 20:"pawn", 22:"pawn", 24:"pawn",...
-             26:"pawn", 28:"pawn", 30:"pawn", 32:"pawn"}
+pieces_id = { 1:'king_b', 3:'queen_b', 5:'knight_1b', 7:'knight_2b', 9:'rook_1b', 11:'rook_2b',
+             13:'bishop_1b', 15:'bishop_2b', 17:'pawn_1b', 19:'pawn_2b', 21:'pawn_3b', 23:'pawn_4b',\
+             25:'pawn_5b', 27:'pawn_6b', 29:'pawn_7b', 31:'pawn_8b',\
+             2:'king_w', 4:'queen_w', 6:'knight_1w', 8:'knight_2w', 10:'rook_1w', 12:'rook_2w',\
+             14:'bishop_1w', 16:'bishop_2w', 18:'pawn_1w', 20:'pawn_2w', 22:'pawn_3w', 24:'pawn_4w',\
+             26:'pawn_5w', 28:'pawn_6w', 30:'pawn_7w', 32:'pawn_8w'}
 
 
 
-#Here the board is initialised before the game
+#Here is how the board will look like (need to initialise it properly by using pieces)
 
-board = [
-        [9 , 5 , 13, 3 , 1 , 15, 7 , 11]
-        [17, 19, 21, 23, 25, 27, 29, 31]
-        [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
-        [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
-        [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
-        [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
-        [18, 20, 22, 24, 26, 28, 30, 32]
-        [10, 6 , 14, 4 , 2 , 16, 8 , 12]
-        ]
+# =============================================================================
+# board_example = [
+#         [9 , 5 , 13, 3 , 1 , 15, 7 , 11]
+#         [17, 19, 21, 23, 25, 27, 29, 31]
+#         [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+#         [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+#         [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+#         [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ]
+#         [18, 20, 22, 24, 26, 28, 30, 32]
+#         [10, 6 , 14, 4 , 2 , 16, 8 , 12]
+#         ]
+# =============================================================================
 
-game = 1
+board = np.zeros((8,8))
+# =============================================================================
+# =============================================================================
+# Here starts a party mode
+# =============================================================================
+# =============================================================================
 
-while game == 1:
-    
-    #Here goes the main game
-    
-    #put some user "interface here"
+rook_1b = pieces.rook(0, 0, 'black', 9)
+rook_2b = pieces.rook(0, 7, 'black', 11)
+rook_1w = pieces.rook(7, 0, 'white', 10)
+rook_2w = pieces.rook(7, 7, 'white', 12)
+
+#Check invalid moves
+rook_1b.move((1,1))
+print(board)
+
+# =============================================================================
+# =============================================================================
+# # Here ends the party mode
+# =============================================================================
+# =============================================================================
+
+
+
+# =============================================================================
+# game = 1
+# 
+# while game == 1:
+#     
+#     #Here goes the main game
+#     
+#     #put some user "interface here"
+# =============================================================================
     
